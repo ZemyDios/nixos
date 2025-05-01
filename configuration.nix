@@ -12,6 +12,10 @@
 
   networking.hostName = "zemy-os"; # Define your hostname.
 
+  # Shells
+  environment.shells = with pkgs; [ bash zsh ];
+  users.defaultUserShell = pkgs.bash;
+
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -65,23 +69,18 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # System Packages
   environment.systemPackages = with pkgs; [
-    firefox
     wget
     git
-    kitty
-    neofetch
-    waybar
-    rofi-wayland
-    dolphin
-    vscode
-    pavucontrol
-    github-desktop
+
+    firefox
   ];
 
-  programs.hyprland.enable = true; # Enable Hyprland
+  programs.hyprland = { 
+    enable = true;
+    # package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+  };
 
   # Audio
   hardware.pulseaudio.enable = false;
