@@ -99,6 +99,10 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  programs.bash.shellAliases = {
+    rebuild = "nixos-rebuild switch --use-remote-sudo --flake .#zemy-os";
+  };
+
   system.stateVersion = "24.11"; # Did you read the comment?
 
 }
