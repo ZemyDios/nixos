@@ -7,8 +7,31 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    loader = { 
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    initrd.kernelModules = [ "amdgpu" ];
+  };
+
+  # XServer
+  services.xserver = {
+    enable = true;
+    videoDrivers = [ "amdgpu" ];
+  };
+
+  hardware.opengl.extraPackages = with pkgs; [
+    rocmPackages.clr.icd
+    amdvlk
+  ];
+
+  # For 32 bit applications 
+  hardware.opengl.extraPackages32 = with pkgs; [
+    driversi686Linux.amdvlk
+  ];
+
+  hardware.graphics.enable32Bit = true; # For 32 bit applications
 
   networking.hostName = "zemy-os"; # Define your hostname.
 
@@ -71,6 +94,9 @@
 
   # System Packages
   environment.systemPackages = with pkgs; [
+    blender-hip
+    clinfo
+
     wget
     git
 
