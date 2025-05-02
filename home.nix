@@ -5,6 +5,7 @@
     ./modules/shells.nix
     ./modules/hyprland.nix
     ./modules/firefox.nix
+    ./modules/git.nix
   ];
 
   home.username = "zemy";
