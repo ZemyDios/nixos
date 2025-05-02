@@ -5,5 +5,5 @@
     enable = true;
     userName = "ZemyDios";
     userEmail = "tonicrespomengual@gmail.com";
-  }
+  };
 }
