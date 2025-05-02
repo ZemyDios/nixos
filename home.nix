@@ -1,12 +1,10 @@
 { config, pkgs, ... }:
 
-let
-  myAliases = {
-    ll = "ls -l";
-    ".." = "cd ..";
-  };
+{
+  imports = [
+    ./modules/shells.nix
+  ];
 
-in {
   home.username = "zemy";
   home.homeDirectory = "/home/zemy";
 
@@ -34,16 +32,6 @@ in {
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  programs.bash = {
-    enable = true;
-    shellAliases = myAliases;
-  };
-
-  programs.zsh = {
-    enable = true;
-    shellAliases = myAliases;
-  };
 
   programs.firefox = {
     enable = true;
