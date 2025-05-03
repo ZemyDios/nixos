@@ -108,6 +108,7 @@
     # Why is it working if it isnt enabled???
     withUWSM  = false; # TODO: Idk how to make it work always. Remember to turn false systemd in hyprland home-manager config.
     # package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    xwayland.enable = true;
   };
 
   # Audio
@@ -137,6 +138,13 @@
   };
 
   services.blueman.enable = true;
+
+  programs.steam = {
+    enable = true;
+    # package = pkgs.steam.override { withJava = true; };
+  };
+
+  programs.java.enable = true; 
 
   system.stateVersion = "24.11"; # Did you read the comment?
 
