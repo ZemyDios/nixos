@@ -10,7 +10,7 @@
 
     "modules-left": [ "cpu", "memory", "temperature" ],
     "modules-center": [ "hyprland/workspaces" ],
-    "modules-right": [ "pulseaudio", "pulseaudio/slider", "clock" ],
+    "modules-right": [ "pulseaudio", "clock" ],
 
     "hyprland/workspaces": {
         "disable-scroll": true
@@ -26,12 +26,6 @@
 
     "memory": {
         "format": "RAM: {used:0.1f}G/{total:0.1f}G"
-    },
-
-    "pulseaudio/slider": {
-        "min": 0,
-        "max": 100,
-        "orientation": "horizontal"
     },
 
     "temperature": {
