@@ -130,6 +130,14 @@
     rebuild = "nixos-rebuild switch --use-remote-sudo --flake .#zemy-os";
   };
 
+  # Bluetooth
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
+  services.blueman.enable = true;
+
   system.stateVersion = "24.11"; # Did you read the comment?
 
 }
