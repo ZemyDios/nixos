@@ -3,7 +3,7 @@
 {
   imports = [
     ./modules/shells.nix
-    ./modules/hyprland.nix
+    ./hyprland/config.nix
     ./modules/firefox.nix
     ./modules/git.nix
   ];
