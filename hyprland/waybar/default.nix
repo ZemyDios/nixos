@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
 
+# Waybar Wiki: https://github.com/Alexays/Waybar/wiki
+
 {
   programs.waybar = {
     enable = true;
