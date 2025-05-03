@@ -13,8 +13,7 @@
     "modules-right": [ "pulseaudio", "pulseaudio/slider", "clock" ],
 
     "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true
+        "disable-scroll": true
     },
 
     "clock": {
