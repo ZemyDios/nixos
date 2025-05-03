@@ -2,8 +2,9 @@
 
 {
   imports = [
+    ./hyprland/default.nix
+    
     ./modules/shells.nix
-    ./hyprland/config.nix
     ./modules/firefox.nix
     ./modules/git.nix
   ];
