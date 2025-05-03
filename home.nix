@@ -17,10 +17,7 @@
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
-    kitty
     neofetch
-    waybar
-    rofi-wayland
     dolphin
     vscode
     pavucontrol
