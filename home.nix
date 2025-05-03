@@ -21,6 +21,7 @@
     dolphin
     vscode
     pavucontrol
+    vesktop
   ];
 
   home.file = {
@@ -29,6 +30,10 @@
 
   home.sessionVariables = {
     # EDITOR = "emacs";
+  };
+
+  services.mako = {
+    enable = true;
   };
 
   # Let Home Manager install and manage itself.
