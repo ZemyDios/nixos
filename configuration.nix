@@ -21,17 +21,17 @@
     videoDrivers = [ "amdgpu" ];
   };
 
-  hardware.opengl.extraPackages = with pkgs; [
-    rocmPackages.clr.icd
-    amdvlk
-  ];
-
-  # For 32 bit applications 
-  hardware.opengl.extraPackages32 = with pkgs; [
-    driversi686Linux.amdvlk
-  ];
-
-  hardware.graphics.enable32Bit = true; # For 32 bit applications
+  hardware.graphics = {
+    extraPackages = with pkgs; [
+      rocmPackages.clr.icd
+      amdvlk
+    ];
+    
+    enable32Bit = true;
+    extraPackages32 = with pkgs; [
+      driversi686Linux.amdvlk
+    ];
+  };
 
   networking.hostName = "zemy-os"; # Define your hostname.
 
@@ -105,6 +105,8 @@
 
   programs.hyprland = { 
     enable = true;
+    # Why is it working if it isnt enabled???
+    withUWSM  = false; # TODO: Idk how to make it work always. Remember to turn false systemd in hyprland home-manager config.
     # package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   };
 

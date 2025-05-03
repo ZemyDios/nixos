@@ -14,6 +14,7 @@
 
     wayland.windowManager.hyprland = {
         enable = true;
+        systemd.enable = true; # Conflicts with UWSM https://wiki.hyprland.org/Useful-Utilities/Systemd-start/
 
         settings = {
         "$mod" = "SUPER";
