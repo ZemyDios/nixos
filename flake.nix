@@ -24,7 +24,6 @@
     in {
         nixosConfigurations = {
             zemy-os = lib.nixosSystem {
-                inherit system;
                 modules = [ ./configuration.nix ];
             };
         };
