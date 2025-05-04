@@ -28,6 +28,16 @@
             ",prefered,auto,1"
         ];
 
+        input = {
+            # Keyboard
+            kb_layout = "es";
+
+            # Mouse
+            sensitivity = 0;
+            accel_profile = "flat";
+            follow_mouse = 1;
+        };
+
         xwayland = {
                 force_zero_scaling = true;
         };
@@ -165,40 +175,6 @@
         misc {
             force_default_wallpaper = -1 # Set to 0 or 1 to disable the anime mascot wallpapers
             disable_hyprland_logo = false # If true disables the random hyprland logo / anime girl background. :(
-        }
-
-
-        #############
-        ### INPUT ###
-        #############
-
-        # https://wiki.hyprland.org/Configuring/Variables/#input
-        input {
-            kb_layout = es
-            kb_variant =
-            kb_model =
-            kb_options =
-            kb_rules =
-
-            follow_mouse = 1
-
-            sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
-
-            touchpad {
-                natural_scroll = false
-            }
-        }
-
-        # https://wiki.hyprland.org/Configuring/Variables/#gestures
-        gestures {
-            workspace_swipe = false
-        }
-
-        # Example per-device config
-        # See https://wiki.hyprland.org/Configuring/Keywords/#per-device-input-configs for more
-        device {
-            name = epic-mouse-v1
-            sensitivity = -0.5
         }
 
 
