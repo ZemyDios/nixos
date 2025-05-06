@@ -10,26 +10,22 @@
         };
     };
 
-    outputs = { 
+    outputs = inputs @ { 
         self, 
         nixpkgs,
         home-manager,
         ... 
-    }: let
-    
-        lib = nixpkgs.lib;
-        system = "x86_64-linux";
-        pkgs = nixpkgs.legacyPackages.${system};
-        
-    in {
+    }: {
         nixosConfigurations = {
-            zemy-os = lib.nixosSystem {
+            zemy-os = nixpkgs.lib.nixosSystem {
+                specialArgs = { inherit inputs; };
                 modules = [ ./configuration.nix ];
             };
         };
+
         homeConfigurations = {
             zemy = home-manager.lib.homeManagerConfiguration {
-                inherit pkgs;
+                pkgs = nixpkgs.legacyPackages."x86_64-linux";
                 modules = [ ./home.nix ];
             };
         };
