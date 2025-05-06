@@ -19,14 +19,18 @@
         nixosConfigurations = {
             zemy-os = nixpkgs.lib.nixosSystem {
                 specialArgs = { inherit inputs; };
-                modules = [ ./configuration.nix ];
-            };
-        };
+                modules = [ 
+                    ./configuration.nix
 
-        homeConfigurations = {
-            zemy = home-manager.lib.homeManagerConfiguration {
-                pkgs = nixpkgs.legacyPackages."x86_64-linux";
-                modules = [ ./home.nix ];
+                    home-manager.nixosModules.home-manager {
+                        home-manager = {
+                            useGlobalPkgs = true;
+                            useUserPackages = true;
+                            users.zemy = import ./home.nix;
+                            extraSpecialArgs = { inherit inputs; };
+                        };
+                    }
+                ];
             };
         };
     };
