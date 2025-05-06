@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./hyprland/default.nix
+    ./hyprland
     
     ./modules/shells.nix
     ./modules/firefox.nix
@@ -18,6 +18,7 @@
 
   home.packages = with pkgs; [
     neofetch
+    tree
     dolphin
     vscode
     pavucontrol

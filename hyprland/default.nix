@@ -2,8 +2,8 @@
 
 {
     imports = [
-        ./waybar/default.nix
-        ./hyprpaper/default.nix
+        ./waybar
+        ./hyprpaper
     ];
 
     home.packages = with pkgs; [
