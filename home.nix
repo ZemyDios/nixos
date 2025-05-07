@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -23,6 +23,8 @@
     vscode
     pavucontrol
     vesktop
+    nixd
+    alejandra
   ];
 
   home.file = {
@@ -36,6 +38,8 @@
   services.mako = {
     enable = true;
   };
+
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
