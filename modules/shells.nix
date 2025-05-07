@@ -1,12 +1,13 @@
-{ config, pkgs, ... }:
-
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   myAliases = {
     ll = "ls -l";
     os-rebuild = "sudo nixos-rebuild switch --flake .";
     user-rebuild = "home-manager switch --flake .";
   };
-
 in {
   home.sessionVariables.SHELL = "${pkgs.zsh}/bin/zsh"; # Make zsh default shell
 

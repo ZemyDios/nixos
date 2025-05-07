@@ -1,24 +1,27 @@
-{ config, pkgs, inputs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot = {
-    loader = { 
+    loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    initrd.kernelModules = [ "amdgpu" ];
+    initrd.kernelModules = ["amdgpu"];
   };
 
   # XServer
   services.xserver = {
     enable = true;
-    videoDrivers = [ "amdgpu" ];
+    videoDrivers = ["amdgpu"];
   };
 
   hardware.graphics = {
@@ -26,7 +29,7 @@
       rocmPackages.clr.icd
       amdvlk
     ];
-    
+
     enable32Bit = true;
     extraPackages32 = with pkgs; [
       driversi686Linux.amdvlk
@@ -36,7 +39,7 @@
   networking.hostName = "zemy-os"; # Define your hostname.
 
   # Shells
-  environment.shells = with pkgs; [ bash zsh ];
+  environment.shells = with pkgs; [bash zsh];
   users.defaultUserShell = pkgs.bash;
 
   # Enable networking
@@ -73,18 +76,22 @@
   users.users.zemy = {
     isNormalUser = true;
     description = "Zemy";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [];
   };
 
   # Make sudo passwordless
-  security.sudo.extraRules = [{
-    users = ["zemy"];
-    commands = [{ 
-      command = "ALL";
-      options = ["NOPASSWD"];
-    }];
-  }];
+  security.sudo.extraRules = [
+    {
+      users = ["zemy"];
+      commands = [
+        {
+          command = "ALL";
+          options = ["NOPASSWD"];
+        }
+      ];
+    }
+  ];
 
   # Enable automatic login for the user.
   services.getty.autologinUser = "zemy";
@@ -103,17 +110,17 @@
     firefox
   ];
 
-  programs.hyprland = { 
+  programs.hyprland = {
     enable = true;
     # Why is it working if it isnt enabled???
-    withUWSM  = false; # TODO: Idk how to make it work always. Remember to turn false systemd in hyprland home-manager config.
+    withUWSM = false; # TODO: Idk how to make it work always. Remember to turn false systemd in hyprland home-manager config.
     # package = inputs.hyprland.packages."${pkgs.system}".hyprland;
     xwayland.enable = true;
   };
 
   # Audio
   hardware.pulseaudio.enable = false;
-  
+
   security.rtkit.enable = true; # Enable RealtimeKit for audio purposes
 
   services.pipewire = {
@@ -125,7 +132,7 @@
     # jack.enable = true;
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   programs.bash.shellAliases = {
     rebuild = "nixos-rebuild switch --use-remote-sudo --flake .#zemy-os";
@@ -144,8 +151,7 @@
     # package = pkgs.steam.override { withJava = true; };
   };
 
-  programs.java.enable = true; 
+  programs.java.enable = true;
 
   system.stateVersion = "24.11"; # Did you read the comment?
-
 }

@@ -1,9 +1,12 @@
-{ config, pkgs, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ./hyprland
-    
+
     ./modules/shells.nix
     ./modules/firefox.nix
     ./modules/git.nix
@@ -28,7 +31,6 @@
   ];
 
   home.file = {
-
   };
 
   home.sessionVariables = {
@@ -39,9 +41,8 @@
     enable = true;
   };
 
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
 }
