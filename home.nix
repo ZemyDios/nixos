@@ -10,6 +10,7 @@
     ./modules/shells.nix
     ./modules/firefox.nix
     ./modules/git.nix
+    ./modules/neovim.nix
   ];
 
   home.username = "zemy";
