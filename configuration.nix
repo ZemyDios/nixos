@@ -77,7 +77,6 @@
     isNormalUser = true;
     description = "Zemy";
     extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [];
   };
 
   # Make sudo passwordless
