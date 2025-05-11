@@ -12,10 +12,40 @@
   # Bootloader.
   boot = {
     loader = {
-      systemd-boot.enable = true;
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 5;
+      };
+      timeout = 0;
       efi.canTouchEfiVariables = true;
     };
-    initrd.kernelModules = ["amdgpu"];
+
+    initrd = {
+      kernelModules = ["amdgpu"];
+      verbose = false;
+    };
+
+    # Config from https://wiki.nixos.org/wiki/Plymouth.
+    consoleLogLevel = 3;
+    kernelParams = [
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "udev.log_priority=3"
+      "rd.systemd.show_status=auto"
+    ];
+
+    # Themes: https://github.com/adi1090x/plymouth-themes
+    plymouth = {
+      enable = true;
+      theme = "rings";
+      themePackages = with pkgs; [
+        # By default we would install all themes
+        (adi1090x-plymouth-themes.override {
+          selected_themes = ["rings"];
+        })
+      ];
+    };
   };
 
   # XServer
@@ -93,14 +123,16 @@
   ];
 
   # Enable automatic login for the user.
-  services.getty.autologinUser = "zemy";
+  services.getty = {
+    autologinUser = "zemy";
+    greetingLine = "";
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # System Packages
   environment.systemPackages = with pkgs; [
-    blender-hip
     clinfo
 
     wget
@@ -111,8 +143,7 @@
 
   programs.hyprland = {
     enable = true;
-    # Why is it working if it isnt enabled???
-    withUWSM = false; # TODO: Idk how to make it work always. Remember to turn false systemd in hyprland home-manager config.
+    # withUWSM = true; # TODO: Idk how to make it work always. Remember to turn false systemd in hyprland home-manager config.
     # package = inputs.hyprland.packages."${pkgs.system}".hyprland;
     xwayland.enable = true;
   };
