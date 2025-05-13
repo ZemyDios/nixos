@@ -10,7 +10,7 @@
     ./modules/shells.nix
     ./modules/firefox.nix
     ./modules/git.nix
-    ./modules/neovim.nix
+
   ];
 
   home.username = "zemy";
@@ -29,6 +29,8 @@
     vesktop
     nixd
     alejandra
+
+    inputs.custom-neovim.packages.${pkgs.system}.neovim
   ];
 
   home.file = {

@@ -1,69 +1,5 @@
 {
   "nodes": {
-    "custom-neovim": {
-      "inputs": {
-        "flake-utils": "flake-utils",
-        "nil": "nil",
-        "nixpkgs": "nixpkgs",
-        "plugins-cmp-buffer": "plugins-cmp-buffer",
-        "plugins-cmp-dap": "plugins-cmp-dap",
-        "plugins-cmp-nvim-lsp": "plugins-cmp-nvim-lsp",
-        "plugins-cmp-nvim-lsp-document-symbol": "plugins-cmp-nvim-lsp-document-symbol",
-        "plugins-cmp-nvim-lsp-signature-help": "plugins-cmp-nvim-lsp-signature-help",
-        "plugins-cmp-path": "plugins-cmp-path",
-        "plugins-cmp-treesitter": "plugins-cmp-treesitter",
-        "plugins-cmp-vsnip": "plugins-cmp-vsnip",
-        "plugins-copilot": "plugins-copilot",
-        "plugins-copilot-chat": "plugins-copilot-chat",
-        "plugins-crates-nvim": "plugins-crates-nvim",
-        "plugins-fidget": "plugins-fidget",
-        "plugins-fzf-lua": "plugins-fzf-lua",
-        "plugins-gitsigns-nvim": "plugins-gitsigns-nvim",
-        "plugins-glow-nvim": "plugins-glow-nvim",
-        "plugins-indent-blankline": "plugins-indent-blankline",
-        "plugins-lazygit": "plugins-lazygit",
-        "plugins-leap": "plugins-leap",
-        "plugins-lsp-signature": "plugins-lsp-signature",
-        "plugins-lspkind": "plugins-lspkind",
-        "plugins-lualine": "plugins-lualine",
-        "plugins-noice": "plugins-noice",
-        "plugins-notify": "plugins-notify",
-        "plugins-nui": "plugins-nui",
-        "plugins-null-ls": "plugins-null-ls",
-        "plugins-nvim-autopairs": "plugins-nvim-autopairs",
-        "plugins-nvim-cmp": "plugins-nvim-cmp",
-        "plugins-nvim-dap": "plugins-nvim-dap",
-        "plugins-nvim-dap-ui": "plugins-nvim-dap-ui",
-        "plugins-nvim-dap-virtual-text": "plugins-nvim-dap-virtual-text",
-        "plugins-nvim-jdtls": "plugins-nvim-jdtls",
-        "plugins-nvim-lightbulb": "plugins-nvim-lightbulb",
-        "plugins-nvim-lspconfig": "plugins-nvim-lspconfig",
-        "plugins-nvim-metals": "plugins-nvim-metals",
-        "plugins-nvim-nio": "plugins-nvim-nio",
-        "plugins-nvim-web-devicons": "plugins-nvim-web-devicons",
-        "plugins-org-roam": "plugins-org-roam",
-        "plugins-orgmode": "plugins-orgmode",
-        "plugins-plenary-nvim": "plugins-plenary-nvim",
-        "plugins-ranger": "plugins-ranger",
-        "plugins-rust-tools": "plugins-rust-tools",
-        "plugins-sqls-nvim": "plugins-sqls-nvim",
-        "plugins-theme": "plugins-theme",
-        "plugins-todo": "plugins-todo",
-        "plugins-trouble": "plugins-trouble",
-        "plugins-vim-vsnip": "plugins-vim-vsnip",
-        "plugins-which-key": "plugins-which-key"
-      },
-      "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-LNgDtQgZ6hXbSlluES+TrXxz8hhFbV7eCR2WMtQ6pBs=",
-        "path": "/nix/store/nfllz4xjqc9hgf58s192lc4141lw4k0v-source/custom-neovim",
-        "type": "path"
-      },
-      "original": {
-        "path": "/nix/store/nfllz4xjqc9hgf58s192lc4141lw4k0v-source/custom-neovim",
-        "type": "path"
-      }
-    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -82,35 +18,12 @@
         "type": "github"
       }
     },
-    "home-manager": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1746171682,
-        "narHash": "sha256-EyXUNSa+H+YvGVuQJP1nZskXAowxKYp79RNUsNdQTj4=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "50eee705bbdbac942074a8c120e8194185633675",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "ref": "release-24.11",
-        "repo": "home-manager",
-        "type": "github"
-      }
-    },
     "nil": {
       "inputs": {
         "flake-utils": [
-          "custom-neovim",
           "flake-utils"
         ],
         "nixpkgs": [
-          "custom-neovim",
           "nixpkgs"
         ],
         "rust-overlay": "rust-overlay"
@@ -143,21 +56,6 @@
         "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1746422338,
-        "narHash": "sha256-NTtKOTLQv6dPfRe00OGSywg37A1FYqldS6xiNmqBUYc=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "5b35d248e9206c1f3baf8de6a7683fee126364aa",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "ref": "nixos-24.11",
-        "type": "indirect"
       }
     },
     "plugins-cmp-buffer": {
@@ -914,20 +812,65 @@
     },
     "root": {
       "inputs": {
-        "custom-neovim": "custom-neovim",
-        "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs_2"
+        "flake-utils": "flake-utils",
+        "nil": "nil",
+        "nixpkgs": "nixpkgs",
+        "plugins-cmp-buffer": "plugins-cmp-buffer",
+        "plugins-cmp-dap": "plugins-cmp-dap",
+        "plugins-cmp-nvim-lsp": "plugins-cmp-nvim-lsp",
+        "plugins-cmp-nvim-lsp-document-symbol": "plugins-cmp-nvim-lsp-document-symbol",
+        "plugins-cmp-nvim-lsp-signature-help": "plugins-cmp-nvim-lsp-signature-help",
+        "plugins-cmp-path": "plugins-cmp-path",
+        "plugins-cmp-treesitter": "plugins-cmp-treesitter",
+        "plugins-cmp-vsnip": "plugins-cmp-vsnip",
+        "plugins-copilot": "plugins-copilot",
+        "plugins-copilot-chat": "plugins-copilot-chat",
+        "plugins-crates-nvim": "plugins-crates-nvim",
+        "plugins-fidget": "plugins-fidget",
+        "plugins-fzf-lua": "plugins-fzf-lua",
+        "plugins-gitsigns-nvim": "plugins-gitsigns-nvim",
+        "plugins-glow-nvim": "plugins-glow-nvim",
+        "plugins-indent-blankline": "plugins-indent-blankline",
+        "plugins-lazygit": "plugins-lazygit",
+        "plugins-leap": "plugins-leap",
+        "plugins-lsp-signature": "plugins-lsp-signature",
+        "plugins-lspkind": "plugins-lspkind",
+        "plugins-lualine": "plugins-lualine",
+        "plugins-noice": "plugins-noice",
+        "plugins-notify": "plugins-notify",
+        "plugins-nui": "plugins-nui",
+        "plugins-null-ls": "plugins-null-ls",
+        "plugins-nvim-autopairs": "plugins-nvim-autopairs",
+        "plugins-nvim-cmp": "plugins-nvim-cmp",
+        "plugins-nvim-dap": "plugins-nvim-dap",
+        "plugins-nvim-dap-ui": "plugins-nvim-dap-ui",
+        "plugins-nvim-dap-virtual-text": "plugins-nvim-dap-virtual-text",
+        "plugins-nvim-jdtls": "plugins-nvim-jdtls",
+        "plugins-nvim-lightbulb": "plugins-nvim-lightbulb",
+        "plugins-nvim-lspconfig": "plugins-nvim-lspconfig",
+        "plugins-nvim-metals": "plugins-nvim-metals",
+        "plugins-nvim-nio": "plugins-nvim-nio",
+        "plugins-nvim-web-devicons": "plugins-nvim-web-devicons",
+        "plugins-org-roam": "plugins-org-roam",
+        "plugins-orgmode": "plugins-orgmode",
+        "plugins-plenary-nvim": "plugins-plenary-nvim",
+        "plugins-ranger": "plugins-ranger",
+        "plugins-rust-tools": "plugins-rust-tools",
+        "plugins-sqls-nvim": "plugins-sqls-nvim",
+        "plugins-theme": "plugins-theme",
+        "plugins-todo": "plugins-todo",
+        "plugins-trouble": "plugins-trouble",
+        "plugins-vim-vsnip": "plugins-vim-vsnip",
+        "plugins-which-key": "plugins-which-key"
       }
     },
     "rust-overlay": {
       "inputs": {
         "flake-utils": [
-          "custom-neovim",
           "nil",
           "flake-utils"
         ],
         "nixpkgs": [
-          "custom-neovim",
           "nil",
           "nixpkgs"
         ]
