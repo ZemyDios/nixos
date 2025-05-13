@@ -10,6 +10,7 @@
   programs.kitty = {
     enable = true;
 
+    # See https://sw.kovidgoyal.net/kitty/
     settings = {
       # Fuente
       font_family = "MesloLGS NF"; # Reemplaza por la fuente que uses (Nerd Font recomendada para P10k)

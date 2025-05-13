@@ -13,6 +13,7 @@
     kitty
     waybar
     rofi-wayland
+    hyprshot
   ];
 
   wayland.windowManager.hyprland = {
@@ -172,6 +173,7 @@
         "$mainMod, R, exec, $menu"
         "$mainMod, P, pseudo,"   # Dwindle
         "$mainMod, J, togglesplit," # Dwindle
+        "$mainMod SHIFT, S, exec, hyprshot -m region --clipboard-only"
 
         # Move Focus
         "$mainMod, left, movefocus, l"
@@ -204,8 +206,8 @@
         "$mainMod SHIFT, 0, movetoworkspace, 10"
 
         # Special Workspace (scratchpad)
-        "$mainMod, S, togglespecialworkspace, magic"
-        "$mainMod SHIFT, S, movetoworkspace, special:magic"
+        "$mainMod, Tab, togglespecialworkspace, magic"
+        "$mainMod SHIFT, Tab, movetoworkspace, special:magic"
 
       ];
 
