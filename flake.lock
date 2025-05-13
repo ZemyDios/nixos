@@ -56,11 +56,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-LNgDtQgZ6hXbSlluES+TrXxz8hhFbV7eCR2WMtQ6pBs=",
-        "path": "/nix/store/nfllz4xjqc9hgf58s192lc4141lw4k0v-source/custom-neovim",
+        "path": "/nix/store/dw12gw4fv9x9jw0k85292d3wnq6bjd41-source/custom-neovim",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/nfllz4xjqc9hgf58s192lc4141lw4k0v-source/custom-neovim",
+        "path": "/nix/store/dw12gw4fv9x9jw0k85292d3wnq6bjd41-source/custom-neovim",
         "type": "path"
       }
     },
