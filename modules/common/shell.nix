@@ -8,6 +8,7 @@
   environment.systemPackages = with pkgs; [
     oh-my-zsh
     zsh-powerlevel10k
+    jetbrains-mono
   ];
 
   programs.zsh.enable = true;
