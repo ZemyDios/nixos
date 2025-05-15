@@ -131,6 +131,7 @@
 
     nixd
     alejandra
+    stow
 
     dolphin
     vscode
