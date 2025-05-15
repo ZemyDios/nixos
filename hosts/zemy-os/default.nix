@@ -123,28 +123,18 @@
     greetingLine = "";
   };
 
-  
-
   # System Packages
   environment.systemPackages = with pkgs; [
     wget
-    git
-
-    firefox
     neofetch
     tree
+
+    nixd
+    alejandra
+
     dolphin
     vscode
     pavucontrol
     vesktop
-    nixd
-    alejandra
-    kitty
   ];
-
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-  };
 }
