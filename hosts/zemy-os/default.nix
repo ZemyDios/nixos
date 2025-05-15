@@ -6,7 +6,15 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+
+    ../../modules/common
+    ../../modules/WM/hyprland.nix
   ];
+
+  system.stateVersion = "24.11"; # NixOS Version
+  networking.hostName = "zemy-os"; # System Hostname
+  nix.settings.experimental-features = ["nix-command" "flakes"]; # Enable Flakes
+  nixpkgs.config.allowUnfree = true; # Allow unfree packages
 
   # Bootloader.
   boot = {
@@ -65,12 +73,6 @@
     ];
   };
 
-  networking.hostName = "zemy-os"; # Define your hostname.
-
-  # Shells
-  environment.shells = with pkgs; [bash zsh];
-  users.defaultUserShell = pkgs.bash;
-
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -90,12 +92,6 @@
     LC_PAPER = "es_ES.UTF-8";
     LC_TELEPHONE = "es_ES.UTF-8";
     LC_TIME = "es_ES.UTF-8";
-  };
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "es";
-    variant = "";
   };
 
   # Configure console keymap
@@ -127,8 +123,7 @@
     greetingLine = "";
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  
 
   # System Packages
   environment.systemPackages = with pkgs; [
@@ -147,49 +142,9 @@
     kitty
   ];
 
-  programs.hyprland = {
+  programs.neovim = {
     enable = true;
-    # withUWSM = true; # TODO: Idk how to make it work always. Remember to turn false systemd in hyprland home-manager config.
-    # package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-    xwayland.enable = true;
+    viAlias = true;
+    vimAlias = true;
   };
-
-  # Audio
-  hardware.pulseaudio.enable = false;
-
-  security.rtkit.enable = true; # Enable RealtimeKit for audio purposes
-
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # Uncomment the following line if you want to use JACK applications
-    # jack.enable = true;
-  };
-
-  nix.settings.experimental-features = ["nix-command" "flakes"];
-
-  programs.bash.shellAliases = {
-    rebuild = "nixos-rebuild switch --use-remote-sudo --flake .#zemy-os";
-  };
-
-  # Bluetooth
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-  };
-
-  services.blueman.enable = true;
-
-  programs.steam = {
-    enable = true;
-    # package = pkgs.steam.override { withJava = true; };
-  };
-
-  programs.zsh.enable = true;
-
-  programs.java.enable = true;
-
-  system.stateVersion = "24.11"; # Did you read the comment?
 }
