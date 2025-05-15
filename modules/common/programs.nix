@@ -10,6 +10,31 @@
 
     git = {
       enable = true;
+
+      config = {
+
+        # Sección [core] - Opciones del núcleo de Git
+        core = {
+          editor = "nvim"; # Editor por defecto 
+        };
+
+        # Sección [alias]
+        alias = {
+          st = "status";           # git st
+          co = "checkout";         # git co rama
+          br = "branch";           # git br
+          ci = "commit";           # git ci
+          di = "diff";             # git di
+          hist = "log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"; # git hist
+          type = "cat-file -t";    # git type <hash> (muestra tipo de objeto)
+          dump = "cat-file -p";    # git dump <hash> (muestra contenido de objeto)
+        };
+
+        # Sección [init]
+        init = {
+          defaultBranch = "main";
+        };
+      };
     };
 
     firefox = {
@@ -61,7 +86,6 @@
           ];
         };
       };
-      
     };
 
     
