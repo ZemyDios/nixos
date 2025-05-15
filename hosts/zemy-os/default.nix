@@ -5,7 +5,6 @@
   ...
 }: {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
@@ -133,12 +132,19 @@
 
   # System Packages
   environment.systemPackages = with pkgs; [
-    clinfo
-
     wget
     git
 
     firefox
+    neofetch
+    tree
+    dolphin
+    vscode
+    pavucontrol
+    vesktop
+    nixd
+    alejandra
+    kitty
   ];
 
   programs.hyprland = {
@@ -180,6 +186,8 @@
     enable = true;
     # package = pkgs.steam.override { withJava = true; };
   };
+
+  programs.zsh.enable = true;
 
   programs.java.enable = true;
 
