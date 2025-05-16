@@ -1,6 +1,6 @@
 { ... } : {
-
-   programs = {
+  
+  programs = {
 
     neovim = {
       enable = true;

@@ -8,7 +8,6 @@
   environment.systemPackages = with pkgs; [
     oh-my-zsh
     zsh-powerlevel10k
-    jetbrains-mono
   ];
 
   programs.zsh = {
@@ -20,7 +19,6 @@
     histSize = 10000;
     ohMyZsh = {
       enable = true;
-      theme = "powerLevel10k/powerlevel10k";
       plugins = [ "git" ];
     };
 

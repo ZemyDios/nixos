@@ -129,6 +129,9 @@
     neofetch
     tree
 
+    nerdfonts # Needs a lot of time to download and build
+    # (nerdfonts.override { fonts = [ "GeistMono" ]; })
+
     nixd
     alejandra
     stow
