@@ -11,5 +11,19 @@
     jetbrains-mono
   ];
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    enableBashCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+    histSize = 10000;
+    ohMyZsh = {
+      enable = true;
+      theme = "powerLevel10k/powerlevel10k";
+      plugins = [ "git" ];
+    };
+
+    promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+  };
 }
