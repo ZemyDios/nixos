@@ -3,10 +3,14 @@
   ...
 } : {
   environment.systemPackages = with pkgs; [
+    hyprpaper
+    hypridle
+    hyprlock
+    hyprshot
+
     kitty
     waybar
     rofi-wayland
-    hyprpaper
   ];
 
   programs.hyprland = {
